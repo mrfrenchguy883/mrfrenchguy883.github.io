@@ -31,6 +31,22 @@
             background-color: #00ff00;
             color: #111;
         }
+        /* Styled Exit Button */
+        .exit-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #441111;
+            color: #ff5555;
+            border: 2px solid #ff5555;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: 0.2s;
+        }
+        .exit-btn:hover {
+            background-color: #ff5555;
+            color: #111;
+        }
         /* The container holding the game frame */
         #game-frame {
             width: 90%;
@@ -40,7 +56,7 @@
             background-color: #000;
             border-radius: 8px;
             display: none; /* Hidden until a game is picked */
-            margin: 0 auto;
+            margin: 20px auto 0 auto;
         }
     </style>
 </head>
@@ -55,6 +71,8 @@
         <button class="game-btn" onclick="launchGame('https://github.io')">Play Hextris</button>
         <button class="game-btn" onclick="launchGame('https://github.io')">Play Clumsy Bird</button>
         <button class="game-btn" onclick="launchGame('https://github.io')">Play A Dark Room</button>
+        <!-- Return Button -->
+        <button class="exit-btn" onclick="returnToHome()">Lock & Exit Room</button>
     </div>
 
     <!-- Hidden iframe viewport -->
@@ -63,8 +81,15 @@
     <script>
         function launchGame(url) {
             const frame = document.getElementById('game-frame');
-            frame.src = url;          // Update the target inside the window
-            frame.style.display = "block"; // Make the window visible
+            frame.src = url;               // Load game URL inside frame
+            frame.style.display = "block";  // Make frame visible
+        }
+
+        function returnToHome() {
+            const frame = document.getElementById('game-frame');
+            frame.src = "";                // Clear out the loaded game
+            frame.style.display = "none";  // Hide the frame window
+            window.location.href = "index.html"; // Send user back to code gateway
         }
     </script>
 
