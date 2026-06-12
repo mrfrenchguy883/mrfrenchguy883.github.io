@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Secret Arcade</title>
+    <style>
+        body { 
+            font-family: sans-serif; 
+            text-align: center; 
+            background-color: #111; 
+            color: #00ff00; 
+            margin: 0;
+            padding: 20px;
+        }
+        .menu {
+            margin-bottom: 20px;
+        }
+        .game-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: 0.2s;
+        }
+        .game-btn:hover {
+            background-color: #00ff00;
+            color: #111;
+        }
+        /* The container holding the game frame */
+        #game-frame {
+            width: 90%;
+            max-width: 800px;
+            height: 600px;
+            border: 4px solid #333;
+            background-color: #000;
+            border-radius: 8px;
+            display: none; /* Hidden until a game is picked */
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to the Secret gaming portal!</h1>
+    <p>Select a game below to launch it inside this room.</p>
+    
+    <!-- Menu Controls -->
+    <div class="menu">
+        <button class="game-btn" onclick="launchGame('https://github.io')">Play 2048</button>
+        <button class="game-btn" onclick="launchGame('https://github.io')">Play Hextris</button>
+        <button class="game-btn" onclick="launchGame('https://github.io')">Play Clumsy Bird</button>
+        <button class="game-btn" onclick="launchGame('https://github.io')">Play A Dark Room</button>
+    </div>
+
+    <!-- Hidden iframe viewport -->
+    <iframe id="game-frame" src="" sandbox="allow-scripts allow-same-origin"></iframe>
+
+    <script>
+        function launchGame(url) {
+            const frame = document.getElementById('game-frame');
+            frame.src = url;          // Update the target inside the window
+            frame.style.display = "block"; // Make the window visible
+        }
+    </script>
+
+</body>
+</html>
