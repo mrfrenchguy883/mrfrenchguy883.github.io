@@ -1,9 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Portal - Enter Access Code</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 100px; background-color: #222; color: #fff; }
+        input { padding: 10px; font-size: 16px; border-radius: 5px; border: none; margin-right: 10px; }
+        button { padding: 10px 20px; font-size: 16px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .error { color: #ff6b6b; margin-top: 15px; display: none; }
+    </style>
 </head>
 <body>
-    <h1>Hello World! My GitHub site works.</h1>
+
+    <h2>Enter Game Code</h2>
+    <input type="text" id="gameCode" placeholder="Enter 7-digit code...">
+    <button onclick="checkCode()">Join Game</button>
+    <p id="errorMessage" class="error">Invalid Code. Please try again.</p>
+
+    <script>
+        function checkCode() {
+            const inputCode = document.getElementById("gameCode").value.trim();
+            
+            // Set your secret code here (e.g., '123456')
+            if (inputCode === "1wang4me") {
+                // Redirects to the hidden game page file
+                window.location.href = "g1mkit.wal";
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+    </script>
+
 </body>
 </html>
